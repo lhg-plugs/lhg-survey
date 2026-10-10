@@ -1,0 +1,81 @@
+{
+  "expected_columns": [
+    "id",
+    "age",
+    "gender",
+    "married",
+    "satisfaction",
+    "duration_sec"
+  ],
+  "value_sets": {
+    "gender": [
+      "男",
+      "女"
+    ],
+    "married": [
+      "是",
+      "否"
+    ]
+  },
+  "numeric_ranges": {
+    "age": [
+      0,
+      120
+    ],
+    "satisfaction": [
+      1,
+      5
+    ],
+    "duration_sec": [
+      0,
+      3600
+    ]
+  },
+  "logic_rules": [
+    {
+      "name": "未成年人已婚",
+      "expr": "age < 18 and married == '是'"
+    }
+  ],
+  "missing_threshold": 0.2,
+  "duplicate_threshold": 0.05,
+  "duration_col": "duration_sec",
+  "min_duration_sec": 30,
+  "stats": [
+    {
+      "method": "t_test",
+      "group_col": "gender",
+      "value_col": "satisfaction"
+    },
+    {
+      "method": "chi_square",
+      "col_a": "gender",
+      "col_b": "married"
+    },
+    {
+      "method": "correlation",
+      "col_x": "age",
+      "col_y": "satisfaction"
+    }
+  ],
+  "charts": [
+    {
+      "title": "满意度分布",
+      "type": "bar",
+      "columns": [
+        "satisfaction"
+      ]
+    },
+    {
+      "title": "年龄-满意度散点",
+      "type": "scatter",
+      "columns": [
+        "age",
+        "satisfaction"
+      ]
+    }
+  ],
+  "summary_numbers": {
+    "有效样本量": 120
+  }
+}

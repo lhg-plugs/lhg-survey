@@ -1,0 +1,1 @@
+{"$schema":"https://json.schemastore.org/claude-code-marketplace.json","name":"lhg-plugs","owner":{"name":"刘洪光"},"plugins":[{"description":"问卷分析专家：CSV问卷数据→清洗→描述统计→交叉分析→图表→结论报告，一键出报告","name":"lhg-survey","source":"./"}]}
